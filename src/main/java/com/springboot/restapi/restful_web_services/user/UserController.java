@@ -1,8 +1,6 @@
 package com.springboot.restapi.restful_web_services.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,12 @@ public class UserController {
         User user = userDaoService.findById(id);
 
         return user;
+    }
+
+    @PostMapping("/users")
+    public void createNewUser(@RequestBody User user){
+        userDaoService.saveNewUser(user);
+
     }
 
 }
